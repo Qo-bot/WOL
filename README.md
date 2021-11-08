@@ -103,20 +103,20 @@ ip addr
 ## Vorbereitung des Clients:
 * Installieren von ethtool
 ```
-apt update && sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y
 ```
 ```
-apt install ethtool
+sudo apt install ethtool
 ```
 ```
-nano wol.sh
+sudo nano wol.sh
 ```
 ```
 wakeonlan MAC ADRESS
 ```
 * Setzen des wol.service
 ```
-nano /etc/systemd/system/wol.service
+sudo nano /etc/systemd/system/wol.service
 ```
 ```
 [Unit]
@@ -132,14 +132,14 @@ KillMode=process
 WantedBy=multi-user.target
 ```
 ```
-systemd enable /etc/systemd/system/wol.service
+sudo systemctl enable /etc/systemd/system/wol.service
 ```
 ```
-systemd status wol.service
+sudo systemctl status wol.service
 ```
 * Setzen des wol.timer
 ```
-nano /etc/systemd/system/wol.timer
+sudo nano /etc/systemd/system/wol.timer
 ```
 ```
 [Unit]
@@ -154,9 +154,9 @@ Unit=wol.service
 WantedBy=timers.target
 ```
 ```
-systemd enable /etc/systemd/system/wol.timer
+sudo systemctl enable /etc/systemd/system/wol.timer
 ```
 ```
-systemd status wol.timer
+sudo systemctl status wol.timer
 ```
 > src: IT Solution Linder
