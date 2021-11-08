@@ -95,6 +95,11 @@ systemctl status shutdown.service
 ```
 systemctl status shutdown.timer
 ```
+* MAC Adresse notieren:
+
+```
+ip addr
+```
 ## Vorbereitung des Clients:
 * Installieren von ethtool
 ```
