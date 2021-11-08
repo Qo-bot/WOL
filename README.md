@@ -9,7 +9,13 @@ WOL fähiges Mainboard im Server.
 
 
 ## Automatisches Herunterfahren über systemd:
-
+* Installieren von ethtool
+```
+sudo apt update && sudo apt upgrade -y
+```
+```
+sudo apt install ethtool
+```
 * Option 1: Automatisches Herunterfahren
 ```
 nano /etc/systemd/system/shutdown.service
