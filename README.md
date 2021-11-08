@@ -8,7 +8,7 @@ Client und Server müssen sich im selben Subnetz befinden.
 WOL fähiges Mainboard im Server.
 
 
-## Automatisches Herunterfahren über systemd:
+## Automatisches Herunterfahren über systemd Serverseitig:
 * Installieren von ethtool
 ```
 sudo apt update && sudo apt upgrade -y
