@@ -120,7 +120,7 @@ nano /etc/systemd/system/wol.service
 ```
 ```
 [Unit]
-Description=node2 starten
+Description=Server starten
 
 [Service]
 WorkingDirectory=/root/
