@@ -16,7 +16,7 @@ nano /etc/systemd/system/shutdown.service
 ```
 ```
 [Unit]
-Description=Nachtabschaltung dauerhaft
+Description=Automatisches Herunterfahren
 
 [Service]
 WorkingDirectory=/root/
