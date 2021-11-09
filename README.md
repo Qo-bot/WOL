@@ -1,5 +1,5 @@
 # WOL
-Automatische WOL Schaltung eines Servers mithilfe von systemd.
+WOL Setup mit Hilfe von systemd.
 Client sendet WOL Signal an Server. Server fährt automatisch über Nacht herunter.
 
 
@@ -18,7 +18,7 @@ sudo apt install ethtool
 ```
 * Option 1: Automatisches Herunterfahren
 ```
-nano /etc/systemd/system/shutdown.service
+nano /etc/systemd/system/nachtschaltung.service
 ```
 ```
 [Unit]
@@ -27,7 +27,7 @@ Description=Automatisches Herunterfahren
 [Service]
 WorkingDirectory=/root/
 Type=oneshot
-ExecStart=/bin/bash shutdown.sh
+ExecStart=/bin/bash nachtschaltung.sh
 
 [Install]
 WantedBy=basic.target
@@ -35,22 +35,22 @@ WantedBy=basic.target
 
 
 ```
-nano shutdown.sh
+nano nachtschaltung.sh
 ```
 ```
 shutdown 23:30 "Automatisches Herunterfahren"
 ```
 
 ```
-systemctl enable /etc/systemd/system/shutdown.service
+systemctl enable /etc/systemd/system/nachtschaltung.service
 ```
 ```
-systemctl status shutdown.service
+systemctl status nachtschaltung.service
 ```
 
 * Option 2: Automatisches Herunterfahren mit Timer:
 ```
-nano /etc/systemd/system/shutdown.service
+nano /etc/systemd/system/nachtschaltung.service
 ```
 ```
 [Unit]
@@ -59,14 +59,14 @@ Description="Automatisches Herunterfahren"
 [Service]
 WorkingDirectory=/root/
 Type=oneshot
-ExecStart=/bin/bash shutdown.sh
+ExecStart=/bin/bash nachtschaltung.sh
 KillMode=process
 
 [Install]
 WantedBy=multi-user.target 
 ```
 ```
-nano /etc/systemd/system/shutdown.timer 
+nano /etc/systemd/system/nachtschaltung.timer 
 ```
 ```
 [Unit]
@@ -75,13 +75,13 @@ Description="Nachabschaltung Timer"
 [Timer]
 OnCalendar=*-*-* 18:00:00
 Persistent=true
-Unit=shutdown.service
+Unit=nachtschaltung.service
 
 [Install]
 WantedBy=timers.target
 ```
 ```
-nano shutdown.sh
+nano nachtschaltung.sh
 ```
 
 
@@ -90,16 +90,16 @@ shutdown 23:30 "Automatisches Herunterfahren"
 ```
 
 ```
-systemctl enable /etc/systemd/system/shutdown.service
+systemctl enable /etc/systemd/system/nachtschaltung.service
 ```
 ```
-systemctl enable /etc/systemd/system/shutdown.timer
+systemctl enable /etc/systemd/system/nachtschaltung.timer
 ```
 ```
-systemctl status shutdown.service
+systemctl status nachtschaltung.service
 ```
 ```
-systemctl status shutdown.timer
+systemctl status nachtschaltung.timer
 ```
 * MAC Adresse notieren:
 
@@ -165,4 +165,4 @@ sudo systemctl enable /etc/systemd/system/wol.timer
 ```
 sudo systemctl status wol.timer
 ```
-> src: IT Solution Linder
+> src: .
