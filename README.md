@@ -148,6 +148,9 @@ WantedBy=multi-user.target
 sudo systemctl enable /etc/systemd/system/wol.service
 ```
 ```
+sudo systemctl start wol.service
+```
+```
 sudo systemctl status wol.service
 ```
 * Setzen des wol.timer
@@ -168,6 +171,9 @@ WantedBy=timers.target
 ```
 ```
 sudo systemctl enable /etc/systemd/system/wol.timer
+```
+```
+sudo systemctl start wol.timer
 ```
 ```
 sudo systemctl status wol.timer
