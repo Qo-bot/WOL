@@ -45,6 +45,9 @@ shutdown 23:30 "Automatisches Herunterfahren"
 systemctl enable /etc/systemd/system/nachtschaltung.service
 ```
 ```
+systemctl start /etc/systemd/system/nachtschaltung.service
+```
+```
 systemctl status nachtschaltung.service
 ```
 
