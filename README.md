@@ -92,9 +92,7 @@ nano nachtschaltung.sh
 shutdown 23:30 "Automatisches Herunterfahren"
 ```
 
-```
-systemctl enable /etc/systemd/system/nachtschaltung.service
-```
+
 ```
 systemctl enable /etc/systemd/system/nachtschaltung.timer
 ```
