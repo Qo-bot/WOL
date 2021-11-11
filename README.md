@@ -51,63 +51,7 @@ systemctl start nachtschaltung.service
 systemctl status nachtschaltung.service
 ```
 
-* Option 2: Automatisches Herunterfahren mit Timer:
-```
-nano /etc/systemd/system/nachtschaltung.service
-```
-```
-[Unit]
-Description="Automatisches Herunterfahren"
 
-[Service]
-WorkingDirectory=/root/
-Type=oneshot
-ExecStart=/bin/bash nachtschaltung.sh
-KillMode=process
-
-[Install]
-WantedBy=multi-user.target 
-```
-```
-nano /etc/systemd/system/nachtschaltung.timer 
-```
-```
-[Unit]
-Description="Nachabschaltung Timer"
-
-[Timer]
-OnCalendar=*-*-* 18:00:00
-Persistent=true
-Unit=nachtschaltung.service
-
-[Install]
-WantedBy=timers.target
-```
-```
-nano nachtschaltung.sh
-```
-
-
-```
-shutdown 23:30 "Automatisches Herunterfahren"
-```
-
-
-```
-systemctl enable /etc/systemd/system/nachtschaltung.timer
-```
-```
-systemctl start nachtschaltung.service
-```
-```
-systemctl start nachtschaltung.timer
-```
-```
-systemctl status nachtschaltung.service
-```
-```
-systemctl status nachtschaltung.timer
-```
 * MAC Adresse notieren:
 
 ```
