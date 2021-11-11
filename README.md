@@ -50,6 +50,35 @@ systemctl start nachtschaltung.service
 ```
 systemctl status nachtschaltung.service
 ```
+* Wake-On: g
+```
+ethtool (enps60/Netzwerkname)
+```
+```
+nano /etc/systemd/system/wol-g.service
+```
+```
+[Unit]
+Description=Wake-On: g
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/sbin/ethtool -s enps60 wol g
+
+[Install]
+WantedBy=basic.target
+```
+
+```
+systemctl enable /etc/systemd/system/wol-g.service
+```
+```
+systemctl start wol-g.service
+```
+```
+systemctl status wol-g.service
+```
 
 
 * MAC Adresse notieren:
