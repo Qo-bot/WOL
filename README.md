@@ -95,14 +95,14 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install ethtool
 ```
 ```
-sudo nano wol.sh
+sudo nano node1.sh
 ```
 ```
 wakeonlan MAC ADRESS
 ```
-* Setzen des wol.service
+* Setzen des Aufwach-Service
 ```
-sudo nano /etc/systemd/system/wol.service
+sudo nano /etc/systemd/system/node1.service
 ```
 ```
 [Unit]
@@ -111,28 +111,28 @@ Description=Server starten
 [Service]
 WorkingDirectory=/root/
 Type=oneshot
-ExecStart=/bin/bash wol.sh
+ExecStart=/bin/bash node1.sh
 KillMode=process
 
 [Install]
 WantedBy=multi-user.target
 ```
 ```
-sudo systemctl enable /etc/systemd/system/wol.service
+sudo systemctl enable /etc/systemd/system/node1.service
 ```
 ```
-sudo systemctl start wol.service
+sudo systemctl start node1.service
 ```
 ```
-sudo systemctl status wol.service
+sudo systemctl status node1.service
 ```
 * Setzen des wol.timer
 ```
-sudo nano /etc/systemd/system/wol.timer
+sudo nano /etc/systemd/system/node1.timer
 ```
 ```
 [Unit]
-Description="Server starten"
+Description="node1 starten"
 
 [Timer]
 OnCalendar=Mon-Fri *-*-* 07:30:00
@@ -143,12 +143,12 @@ Unit=wol.service
 WantedBy=timers.target
 ```
 ```
-sudo systemctl enable /etc/systemd/system/wol.timer
+sudo systemctl enable /etc/systemd/system/node1.timer
 ```
 ```
-sudo systemctl start wol.timer
+sudo systemctl start node1.timer
 ```
 ```
-sudo systemctl status wol.timer
+sudo systemctl status node1.timer
 ```
-> src: .
+> src: Manuel
