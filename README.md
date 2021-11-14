@@ -64,7 +64,7 @@ After=network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=/sbin/ethtool -s enps60 wol g
+ExecStart=/sbin/ethtool -s enp6s0 wol g
 
 [Install]
 WantedBy=basic.target
