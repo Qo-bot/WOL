@@ -1,6 +1,7 @@
 # WOL
 WOL Setup mit Hilfe von systemd.
 Client sendet WOL Signal an Server. Server fährt automatisch über Nacht herunter.
+In diesem Beispiel wird über einen Raspberry Pi die Steuerung übernommen.
 
 
 ## Prämisse:
