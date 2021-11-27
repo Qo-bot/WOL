@@ -138,7 +138,7 @@ Description="node1 starten"
 [Timer]
 OnCalendar=Mon-Fri *-*-* 07:30:00
 Persistent=true
-Unit=wol.service
+Unit=node1.service
 
 [Install]
 WantedBy=timers.target
